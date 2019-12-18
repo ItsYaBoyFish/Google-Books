@@ -1,15 +1,15 @@
 import React from 'react';
 import "../SearchBox/SearchBox.css";
 
-function SearchBox() {
+function SearchBox(props) {
   return (
     <div className="searchBox-container">
       <h1>Search For A Book!</h1>
       <div className="input-field">
         <label>Book:</label>
-        <input type="text" placeholder="Please Enter A Book: Example - Harry Potter"/>
+        <input onChange={props.handleSearchInput} type="text" placeholder="Please Enter A Book: Example - Harry Potter"/>
       </div>
-      <button>Search!</button>
+      <button onClick={props.searchAPI}>Search!</button>
     </div>
   )
 }
