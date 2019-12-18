@@ -6,6 +6,8 @@ import axios from "axios";
 
 class BookSearch extends Component {
 
+  //TODO: I need the Link and Authors Data
+
   state = {
     books: [],
     search: ''
@@ -15,6 +17,7 @@ class BookSearch extends Component {
     fetch('/books')
       .then(data => data.json())
       .then(books => console.log(books))
+      .catch(err => console.log(err))
   }
 
   handleSearchInput = (e) => {
@@ -36,7 +39,11 @@ class BookSearch extends Component {
     };
 
     fetch(`/search/books`, options)
-      .then(results => console.log(results))
+      .then(results => results.json())
+      .then(books => {
+        console.log(books)
+        this.setState({books: books.Results})
+      })
       .catch(err => console.log(err))
   }
 
@@ -45,21 +52,13 @@ class BookSearch extends Component {
       <div>
         {/* <Jumbotron /> */}
         <SearchBox searchAPI={this.searchAPI} handleSearchInput={this.handleSearchInput}/>
-        <DisplayResults />
-        <ul>
-          {this.state.books.map(book =>
-          <li key={book.id}>
-            <p>{book.Title}</p>
-            <p>{book.Authors}</p>
-            <p>{book.Description}</p>
-            <p>{book.Image}</p>
-            <p>{book.Link}</p>
-          </li>
-          )}
-        </ul>
+        <DisplayResults books={this.state.books}/>
+        
       </div>
     )
   }
 }
 
 export default BookSearch;
+
+

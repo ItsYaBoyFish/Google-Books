@@ -38,7 +38,12 @@ app.post('/search/books', (req, res) => {
   // console.log({ query: query })
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
     .then(data => dataConversion(data, res))
-    .catch(err => console.log(err))
+    .catch(err => {
+      res.send({
+        Successful: false,
+        Results: "None To Display"
+      })
+    })
 })
 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooksDB",{useNewUrlParser:true,useUnifiedTopology: true});

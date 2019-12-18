@@ -1,0 +1,6 @@
+Create A Card For The Results Coming Back
+- Ensure the card is properly designed 
+- Make Sure The Card Has A Place For You To Save The Book
+
+Connect Everything To A Database
+Get The Create, Delete, And Read Working There For The Saved Books.
