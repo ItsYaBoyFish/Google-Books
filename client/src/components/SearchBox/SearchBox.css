@@ -1,0 +1,42 @@
+.searchBox-container {
+  height: 170px;
+  width: 80%;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 2px lightgrey;
+}
+
+.searchBox-container h1 {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.input-field {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.input-field label {
+  margin-right: 15px;
+  color: black;
+  font-size: 24px;
+}
+
+.input-field input {
+  width: 90%;
+  font-size: 20px;
+}
+
+.searchBox-container button {
+  background-color: rgb(6, 130, 231);
+  color: #fff;
+  padding: 12px;
+  font-size: 15px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  float: right;
+  margin-right: 2.5em;
+  margin-top: 20px;
+}

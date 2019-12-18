@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import DisplaySaved from "../DisplaySaved/DisplaySaved";
 
 class BookSave extends Component {
   render() {
     return (
       <div>
-        <h1>Book Save Page</h1>
+        <DisplaySaved />
       </div>
     )
   }

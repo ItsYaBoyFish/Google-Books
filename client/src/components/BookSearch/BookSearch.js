@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Jumbotron from '../Jumbotron/Jumbotron';
+import SearchBox from "../SearchBox/SearchBox";
+import DisplayResults from "../DisplayResults/DisplayResults";
 
 class BookSearch extends Component {
 
@@ -15,7 +18,9 @@ class BookSearch extends Component {
   render() {  
     return (
       <div>
-        <h2>Book Search Page</h2>
+        {/* <Jumbotron /> */}
+        <SearchBox />
+        <DisplayResults />
         <ul>
           {this.state.books.map(book =>
           <li key={book.id}>
