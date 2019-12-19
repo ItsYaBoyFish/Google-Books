@@ -6,6 +6,44 @@ const axios = require('axios');
 
 // Mongoose Dependecies
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const dbURI = 'mongodb://localhost:27017/googlebooksDB';
+const dbConnection = mongoose.connect(process.env.MONGODB_URI || dbURI, {useNewUrlParser:true,useUnifiedTopology: true});
+
+const BookSchema = new Schema({
+  Title: String,
+  Authors: Array,
+  Description: String,
+  Thumbnail: String,
+  Link: String
+})
+
+var Book = mongoose.model('Book', BookSchema, 'books');
+
+// Book.create({
+//   Title: "Entry 1",
+//   Authors: ["Author 1", "Author 2", "Author 3", "Author 4"],
+//   Description: "Description is the pattern of narrative development that aims to make vivid a place, object, character, or group. Description is one of four rhetorical modes, along with exposition, argumentation, and narration. In practice it would be difficult to write literature that drew on just one of the four basic modes.",
+//   Thumbnail: "www.google.com",
+//   Link: "www.yahooo.com"
+// })
+
+
+Book.find(function(error, books) {
+  console.log(books);
+}) 
+
+// const TestSchema = new Schema ({
+//   Test: String
+// })
+
+// var Test = mongoose.model('Test', TestSchema, 'Test');
+// Test.find(function(err, test) {
+//   console.log(test)
+// })
+
+
+
 
 app.use(express.json());
 
@@ -47,7 +85,13 @@ app.post('/search/books', (req, res) => {
     })
 })
 
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooksDB",{useNewUrlParser:true,useUnifiedTopology: true});
+app.get('/test', (req, res) => {
+  console.log('Test Route Hit')
+  res.send({
+    Successful: true,
+    Message: 'Test Route Hit!'
+  });
+})
 
 app.listen(port, () => {
   console.log(`Server Started On Port: ${port}`);
@@ -73,3 +117,7 @@ function dataConversion(data, response) {
       });
       console.log(results)
 }
+
+
+
+

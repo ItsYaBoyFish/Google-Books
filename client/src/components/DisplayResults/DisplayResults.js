@@ -11,7 +11,7 @@ class DisplayResults extends Component {
       <div className="results-container">
         <div className="results-header">
           {this.props.books.map(book => 
-            <BookCard key={book.ID} Title={book.Title} Description={book.Description} Thumbnail={book.Thumbnail} Authors={book.Authors}/>
+            <BookCard key={book.ID} Title={book.Title} Description={book.Description} Thumbnail={book.Thumbnail} Authors={book.Authors} saveButtonClicked={this.props.saveButtonClicked}/>
           )}
         </div>
       </div>

@@ -45,12 +45,16 @@ class BookSearch extends Component {
       .catch(err => console.log(err))
   }
 
+  saveButtonClicked= () => {
+    console.log('Button Clicked')
+  }
+
   render() {  
     return (
       <div>
         {/* <Jumbotron /> */}
         <SearchBox searchAPI={this.searchAPI} handleSearchInput={this.handleSearchInput}/>
-        <DisplayResults books={this.state.books}/>
+        <DisplayResults saveButtonClicked={this.saveButtonClicked} books={this.state.books}/>
         
       </div>
     )
