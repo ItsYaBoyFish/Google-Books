@@ -8,12 +8,12 @@ function Navbar() {
         <h1>Google Books</h1>
       </div>
       <div className="nav-links">
-        <a>
+        <span>
           <Link to="/">Search</Link>
-        </a>
-        <a>
+        </span>
+        <span>
           <Link to="/Saved">Saved</Link>
-        </a>
+        </span>
       </div>
     </div>
   )

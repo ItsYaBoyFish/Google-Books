@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Jumbotron from '../Jumbotron/Jumbotron';
 import SearchBox from "../SearchBox/SearchBox";
 import DisplayResults from "../DisplayResults/DisplayResults";
-import axios from "axios";
 
 class BookSearch extends Component {
 

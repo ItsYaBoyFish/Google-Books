@@ -22,7 +22,7 @@ app.use(express.json());
 
 app.get('/books', (req, res) => {
   console.log("Home Route Hit")
-  axios.get('https://www.googleapis.com/books/v1/volumes?q=coding')
+  axios.get('https://www.googleapis.com/books/v1/volumes?q=potter')
      .then(data => dataConversion(data, res))
      .catch(err => {
        res.send({
@@ -39,6 +39,7 @@ app.post('/search/books', (req, res) => {
   axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}`)
     .then(data => dataConversion(data, res))
     .catch(err => {
+      console.log(err)
       res.send({
         Successful: false,
         Results: "None To Display"

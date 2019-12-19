@@ -3,17 +3,16 @@ import "../DisplayResults/DisplayResults.css";
 import BookCard from "../BookCard/BookCard";
 
 class DisplayResults extends Component {
+
+  com
+
   render() {
     return (
       <div className="results-container">
         <div className="results-header">
-          <BookCard />
-          <ul>
           {this.props.books.map(book => 
-            <li key={book.ID}>
-              <p>{book.Title}</p>
-            </li>)}
-          </ul>
+            <BookCard key={book.ID} Title={book.Title} Description={book.Description} Thumbnail={book.Thumbnail} Authors={book.Authors}/>
+          )}
         </div>
       </div>
     )
@@ -22,10 +21,4 @@ class DisplayResults extends Component {
 
 
 export default DisplayResults;
-    {/* {props.books.map(book =>
-      <li key={book.ID}>
-        <p>{book.Title}</p>
-        <p>{book.Description}</p>
-        <p>{book.Thumbnail}</p>
-      </li> */}
  
