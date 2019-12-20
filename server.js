@@ -23,19 +23,6 @@ var Book = mongoose.model('Book', BookSchema, 'books');
 
 app.use(express.json());
 
-
-// app.get('/books', (req, res) => {
-//   console.log("Home Route Hit")
-//   axios.get('https://www.googleapis.com/books/v1/volumes?q=potter')
-//      .then(data => dataConversion(data, res))
-//      .catch(err => {
-//        res.send({
-//          Successful: false,
-//          Results: "None To Display"
-//        })
-//      })
-// })
-
 app.post('/search/books', (req, res) => {
   // console.log(req.body)
   var query = req.body.search;
@@ -51,14 +38,6 @@ app.post('/search/books', (req, res) => {
     })
 })
 
-// app.get('/test', (req, res) => {
-//   console.log('Test Route Hit')
-//   res.send({
-//     Successful: true,
-//     Message: 'Test Route Hit!'
-//   });
-// });
-
 app.post('/save/book', (req, res) => {
   console.log('Saving a Book');
 })
@@ -73,6 +52,18 @@ app.post('/books/save', (req, res) => {
     Successful: true,
     Message: 'Save A Book Route'
   });
+})
+
+app.get('/saved/books', (req, res) => {
+  Book.find(function(err, data) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(data);
+      res.send(data);
+    }
+    
+  })
 })
 
 app.listen(port, () => {

@@ -11,12 +11,12 @@ class BookSearch extends Component {
     search: ''
   }
 
-  componentDidMount() {
-    fetch('/books')
-      .then(data => data.json())
-      .then(books => console.log(books))
-      .catch(err => console.log(err))
-  }
+  // componentDidMount() {
+  //   fetch('/books')
+  //     .then(data => data.json())
+  //     .then(books => console.log(books))
+  //     .catch(err => console.log(err))
+  // }
 
   handleSearchInput = (e) => {
     this.setState({

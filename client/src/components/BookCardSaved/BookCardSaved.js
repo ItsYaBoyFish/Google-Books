@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import "../BookCard/BookCard.css";
+import "../BookCardSaved/BookCard.css";
 
 
-class BookCard extends Component {
+class BookCardSaved extends Component {
   state = {
     ID: this.props.ID,
     Title: this.props.Title,
@@ -12,30 +12,30 @@ class BookCard extends Component {
   }
 
 
-  saveButtonClicked = () => {
-    const data = {
-      ID: this.state.ID,
-      Title: this.state.Title,
-      Authors: this.state.Authors,
-      Thumbnail: this.state.Thumbnail,
-      Description: this.state.Description
-    }
+  // saveButtonClicked = () => {
+  //   const data = {
+  //     ID: this.state.ID,
+  //     Title: this.state.Title,
+  //     Authors: this.state.Authors,
+  //     Thumbnail: this.state.Thumbnail,
+  //     Description: this.state.Description
+  //   }
 
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    }
+  //   const options = {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(data)
+  //   }
 
-    fetch('/books/save', options)
-      .then(data => data.json())
-      .then(message => console.log(message))
-      .catch(err => console.log(err))
+  //   fetch('/books/save', options)
+  //     .then(data => data.json())
+  //     .then(message => console.log(message))
+  //     .catch(err => console.log(err))
 
-      alert("Book Submitted!")
-  }
+  //     alert("Book Submitted!")
+  // }
 
   render() {
     return (
@@ -59,13 +59,13 @@ class BookCard extends Component {
             </div>
           </div>
         </div>
-        <div className="save-button" onClick={this.saveButtonClicked}>Save Book!</div>
+        {/* <div className="save-button" onClick={this.saveButtonClicked}>Save Book!</div> */}
       </div>
     )
   }
 }
 
-export default BookCard;
+export default BookCardSaved;
 
 // src="https://via.placeholder.com/200"
 
