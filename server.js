@@ -20,55 +20,21 @@ const BookSchema = new Schema({
 
 var Book = mongoose.model('Book', BookSchema, 'books');
 
-// Book.create({
-//   Title: "Entry 1",
-//   Authors: ["Author 1", "Author 2", "Author 3", "Author 4"],
-//   Description: "Description is the pattern of narrative development that aims to make vivid a place, object, character, or group. Description is one of four rhetorical modes, along with exposition, argumentation, and narration. In practice it would be difficult to write literature that drew on just one of the four basic modes.",
-//   Thumbnail: "www.google.com",
-//   Link: "www.yahooo.com"
-// })
-
-
-Book.find(function(error, books) {
-  console.log(books);
-}) 
-
-// const TestSchema = new Schema ({
-//   Test: String
-// })
-
-// var Test = mongoose.model('Test', TestSchema, 'Test');
-// Test.find(function(err, test) {
-//   console.log(test)
-// })
-
-
-
 
 app.use(express.json());
 
-// app.get("/api/books", (req, res) => {
-//   const books = [
-//     {id: 1, Title: 'Harry Potter', Authors: ['JK Rowling'], Description: 'Harry Potter Book', Image: 'image source goes here.', Link: 'google.com'},
-//     {id: 2, Title: 'Dr. Suess', Authors: ['Author 2'], Description: 'Dr. Suess', Image: 'image source goes here.', Link: 'google.com'},
-//     {id: 3, Title: 'Hunger Games', Authors: ['Author 3'], Description: 'Hunger Games Book', Image: 'image source goes here.', Link: 'google.com'}
-//   ]
-//   res.json(books);
-// });
 
-
-
-app.get('/books', (req, res) => {
-  console.log("Home Route Hit")
-  axios.get('https://www.googleapis.com/books/v1/volumes?q=potter')
-     .then(data => dataConversion(data, res))
-     .catch(err => {
-       res.send({
-         Successful: false,
-         Results: "None To Display"
-       })
-     })
-})
+// app.get('/books', (req, res) => {
+//   console.log("Home Route Hit")
+//   axios.get('https://www.googleapis.com/books/v1/volumes?q=potter')
+//      .then(data => dataConversion(data, res))
+//      .catch(err => {
+//        res.send({
+//          Successful: false,
+//          Results: "None To Display"
+//        })
+//      })
+// })
 
 app.post('/search/books', (req, res) => {
   // console.log(req.body)
@@ -85,11 +51,27 @@ app.post('/search/books', (req, res) => {
     })
 })
 
-app.get('/test', (req, res) => {
-  console.log('Test Route Hit')
+// app.get('/test', (req, res) => {
+//   console.log('Test Route Hit')
+//   res.send({
+//     Successful: true,
+//     Message: 'Test Route Hit!'
+//   });
+// });
+
+app.post('/save/book', (req, res) => {
+  console.log('Saving a Book');
+})
+
+app.post('/books/save', (req, res) => {
+  console.log('Save A Book Route')
+  console.log({RequestParameters: req.body});
+  Book.create(req.body, function(err, success) {
+    console.log({successMessage: success});
+  })
   res.send({
     Successful: true,
-    Message: 'Test Route Hit!'
+    Message: 'Save A Book Route'
   });
 })
 

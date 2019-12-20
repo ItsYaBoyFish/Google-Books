@@ -13,10 +13,28 @@ class BookCard extends Component {
 
 
   saveButtonClicked = () => {
-    fetch('/test')
+    const data = {
+      ID: this.state.ID,
+      Title: this.state.Title,
+      Authors: this.state.Authors,
+      Thumbnail: this.state.Thumbnail,
+      Description: this.state.Description
+    }
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }
+
+    fetch('/books/save', options)
       .then(data => data.json())
       .then(message => console.log(message))
       .catch(err => console.log(err))
+
+      alert("Book Submitted!")
   }
 
   render() {
