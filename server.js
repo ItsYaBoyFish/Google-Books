@@ -3,6 +3,7 @@ const express = require('express');
 const port = process.env.PORT || 5000;
 const app = express();
 const axios = require('axios');
+const path = require('path');
 
 // Mongoose Dependecies
 const mongoose = require('mongoose');
@@ -65,6 +66,14 @@ app.get('/saved/books', (req, res) => {
     
   })
 })
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(port, () => {
   console.log(`Server Started On Port: ${port}`);
