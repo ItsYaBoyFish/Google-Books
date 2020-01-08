@@ -4,7 +4,7 @@
   "description": "Google Book API with a MERN Stack application",
   "main": "server.js",
   "scripts": {
-    "start": "npm start:prod",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
@@ -22,10 +22,7 @@
   ],
   "author": "Austin Graves",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ItsYaBoyFish/Google-Books/issues"
   },
-  "homepage": "https://github.com/ItsYaBoyFish/Google-Books#readme",
   "dependencies": {
     "axios": "^0.19.0",
     "concurrently": "^5.0.1",
