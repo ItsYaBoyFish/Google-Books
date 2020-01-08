@@ -3,9 +3,6 @@ import "../DisplayResults/DisplayResults.css";
 import BookCard from "../BookCard/BookCard";
 
 class DisplayResults extends Component {
-
-  com
-
   render() {
     return (
       <div className="results-container">
